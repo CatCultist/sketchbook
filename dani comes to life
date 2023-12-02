@@ -1,0 +1,359 @@
+import random
+def setup():
+    size(500, 500)
+    time=0
+    #print(blink)
+    colorMode(HSB)
+    background(0,0,0)
+
+top=500
+dani=0
+tempLid1 = 300
+tempLid2 = 310
+tempSpeed = 1
+opener=100
+sapho=140
+lesbos=250
+intro=0
+yearp=1983
+lid1 = 205
+lid2 = 196
+blink = 1
+#1 is close 2 is open 3 is nothing
+
+speed = 1
+accel = 2
+accChange1 = speed / 50
+accChange2 = speed / 52
+r = random.randint(0, 255)
+g =240 #random.randint(0, 255)
+b =200 #random.randint(0, 255)
+eye=0
+wid=250
+hid=250
+wid1=250
+hid1=250
+time=0
+wide1=250
+hide1=250
+eyestate=1
+slow=-40
+snake=0
+def letter(character, x, y, hu, sat, bri):
+    stroke(hu,sat,bri)
+    strokeWeight(5)
+    for i in character:
+        if i == "a":
+            line(x, y+10, x, y+40)
+            line(x+20, y+10, x+20, y+40)
+            line(x, y+25, x+20, y+25)
+            line(x, y+10, x+10, y)
+            line(x+10, y, x+20, y+10)
+        elif i == "b":
+            line(x, y, x, y+40)
+            line(x, y, x+15, y)
+            line(x, y+20, x+15, y+20)
+            line(x, y+40, x+15, y+40)
+            line(x+15, y, x+20, y+10)
+            line(x+15, y+20, x+20, y+10)
+            line(x+15, y+20, x+20, y+30)
+            line(x+15, y+40, x+20, y+30)
+        elif i == "c":
+            line(x, y, x+20, y)
+            line(x, y, x, y+40)
+            line(x, y+40, x+20, y+40)
+        elif i == "d":
+            line(x, y, x, y+40)
+            line(x, y, x+15, y)
+            line(x, y+40, x+15, y+40)
+            line(x+15, y, x+20, y+10)
+            line(x+15, y+40, x+20, y+30)
+            line(x+20, y+10, x+20, y+30)
+        elif i == "e":
+            line(x, y, x, y+40)
+            line(x, y, x+20, y)
+            line(x, y+20, x+20, y+20)
+            line(x, y+40, x+20, y+40)
+        elif i == "f":
+            line(x, y, x+20, y)
+            line(x, y, x, y+40)
+            line(x, y+20, x+20, y+20)
+        elif i == "g":
+            line(x, y, x+20, y)
+            line(x, y, x, y+40)
+            line(x, y+40, x+20, y+40)
+            line(x+20, y, x+20, y+10)
+            line(x+20, y+40, x+20, y+30)
+            line(x+20, y+30, x+10, y+30)
+        elif i == "h":
+            line(x, y, x, y+40)
+            line(x+20, y, x+20, y+40)
+            line(x, y+20, x+20, y+20)
+        elif i == "i":
+            line(x, y, x+20, y)
+            line(x, y+40, x+20, y+40)
+            line(x+10, y, x+10, y+40)
+        elif i == "j":
+            line(x, y, x+20, y)
+            line(x+20, y, x+20, y+40)
+            line(x, y+40, x+20, y+40)
+            line(x, y+40, x, y+30)
+        elif i == "k":
+            line(x, y, x, y+40)
+            line(x, y+20, x+20, y)
+            line(x, y+20, x+20, y+40)
+        elif i =="l":
+            line(x, y, x, y+40)
+            line(x, y+40, x+20, y+40)
+        elif i == "m":
+            line(x, y, x, y+40)
+            line(x+20, y, x+20, y+40)
+            line(x, y, x+10, y+10)
+            line(x+10, y+10, x+20, y)
+        elif i == "n":
+            line(x, y, x, y+40)
+            line(x+20, y, x+20, y+40)
+            line(x, y, x+20, y+40)
+        elif i == "o":
+            line(x, y, x+20, y)
+            line(x, y, x, y+40)
+            line(x+20, y, x+20, y+40)
+            line(x, y+40, x+20, y+40)
+        elif i == "p":
+            line(x, y, x, y+40)
+            line(x, y, x+20, y)
+            line(x, y+20, x+20, y+20)
+            line(x+20, y, x+20, y+20)
+        elif i == "q":
+            line(x, y, x+20, y)
+            line(x, y, x, y+40)
+            line(x+20, y, x+20, y+40)
+            line(x, y+40, x+20, y+40)
+            line(x+13, y+40, x+13, y+30)
+        elif i == "r":
+            line(x, y, x, y+40)
+            line(x, y, x+20, y)
+            line(x+20, y, x+20, y+20)
+            line(x, y+20, x+20, y+20)
+            line(x, y+20, x+20, y+40)
+        elif i == "s":
+            line(x , y, x+20, y)
+            line(x, y, x, y+20)
+            line(x, y+20, x+20, y+20)
+            line(x+20, y+20, x+20, y+40)
+            line(x, y+40, x+20, y+40)
+        elif i == "t":
+            line(x, y, x+20, y)
+            line(x+10, y, x+10, y+40)
+        elif i == "u":
+            line(x, y, x, y+40)
+            line(x, y+40, x+20, y+40)
+            line(x+20, y, x+20, y+40)
+        elif i == "v":
+            line(x, y, x+10, y+40)
+            line(x+20, y, x+10, y+40)
+        elif i == "w":
+            line(x, y, x, y+40)
+            line(x+20, y, x+20, y+40)
+            line(x, y+40, x+10, y+30)
+            line(x+20, y+40, x+10, y+30)
+        elif i == "x":
+            line(x, y, x+20, y+40)
+            line(x+20, y, x, y+40)
+        elif i == "y":
+            line(x, y, x+10, y+10)
+            line(x+20, y, x+10, y+10)
+            line(x+10, y+10, x+10, y+40)
+        elif i == "z":
+            line(x, y, x+20, y)
+            line(x, y+40, x+20, y+40)
+            line(x+20, y, x, y+40)
+        x = x + 30
+def draw():
+    global lid1, lid2, blink,top, speed, accel, accChange1, accChange2, dani, r, g, b,eye,hid,wid,wid1,hid1,wide1,hide1, time, eyestate,slow, accel, intro, sapho, lesbos,yearp, slow, snake,opener,tempLid1,tempLid2,tempSpeed 
+    lenght=millis()/1000
+    print(lenght, )
+    if (intro<50):
+        
+        letter("i am dani",sapho,lesbos,255,0,256)
+        sapho = random.randint(0,400)
+        lesbos = random.randint(0,500)
+        delay(1000-accel)
+        accel=accel+50
+    
+        delay(10)
+        if(accel>=1000):
+            accel=1000
+            intro=intro+1
+            
+        #print(accel)
+    else:
+        if(intro<100):
+            background(170,256,176)
+            
+            textSize(20)
+            text("windows encountered a fatal error",20,240,350,350)
+            text("press Enter to Return to start screen",20,270,350,350)
+            text("error : MA: 1983 : MSX2MLG30",20,320,350,350)
+            text("reason for error: MS3NT13NC3CGCGHCJHGCHGCVEXCESSIVEUSEOFPROCESSINGPOWERMHCJUDYAV$%&DSBJKS£!^GGKHBKS%^%^GGKYGKGFEAR",20,350,450,350)
+            yearo=str(yearp)
+            text(yearo,450,10,500,350)
+            delay(top)
+            print(top)
+            if(top>0):
+                top=top-20
+            if(yearp<2024):
+                yearp=yearp+1
+            else:
+                yearp=2023
+                intro=101
+                
+               
+        else:
+            background(0)
+            if(snake<20):
+                delay(100)
+                snake=snake+1
+            else:
+                delay(10)
+                background(0)
+                colorMode(HSB)
+                noStroke()
+                #print(time,"hop")
+                fill(255)
+                rect(100, 195, 300, 110)
+                fill(r, g, b)
+                #iriscode
+                eye=20#mouseY/10
+
+                
+                if(blink!=3):
+                    #print("hii")
+                    if(slow>1):
+                        wid=random.randint(145,355)
+                        hid=random.randint(235,265)
+                        slow=0
+                    else:
+                        slow=slow+1
+                    
+                wide=abs((250-wid)/4)
+                hide=abs((250-hid)/4)
+                wide1=(250-wid)/8
+                hide1=(250-hid)/8
+                poop=-1+random.randint(0,2)
+                pee=-1+random.randint(0,2)
+                time=time-1
+                if(lenght<55):
+            
+                    if ((lid1 >= 295 and opener<0) or dani==1):
+                        ellipse(wid+poop,hid+pee,100-wide-eye/2,100-hide-eye/2)
+                        fill(256,0,256)
+                        ellipse(wid-wide1+poop,hid-hide1+pee,50-eye,50-eye)
+                        dani=1
+                        
+                    else:
+                        opener=opener-1
+                        stroke(256,255,255)
+                        skew=23
+                        letter("i",120+skew,230,170,256,176)
+                        letter("am",150+skew,230,170,256,176)
+                        letter("dani",220+skew,230,170,256,176)
+                        opener=opener-1
+                else:
+                    fill(170,256,176)
+                    
+                    rect(100, 195, 300, 110)
+                    fill(0,0,256)
+                    blink=3
+                    text("10101010101010101010101010010101010101000010101011010100101010101010100111001010101101011000001010101010101000011010101010101010011001000011010100101010101010011010000001010101010101010010101010101100101010101010100101010101001010110",100,195,300,110)
+                #print(blink, "blink")
+                #print(eyestate, "eye")
+                #print(opener, "open")
+                
+                if(time<1 and lenght<55):
+                    blink=eyestate
+                    
+                    #iris end
+                noStroke()
+                fill(0)
+                beginShape();
+                vertex(400, 250)     #upper start
+                vertex(400, 195)
+                vertex(100, 195)
+                vertex(100, 250)     #lower edge
+                vertex(220, lid1)
+                bezierVertex(220, lid1, 250, lid2, 280, lid1)
+                vertex(280, lid1)
+                vertex(400, 250)
+                endShape();
+                
+                beginShape();
+                vertex(100, 250)
+                vertex(100, 310)
+                vertex(400, 310)
+                vertex(400, 250)
+                vertex(280, 293)
+                bezierVertex(280, 293, 250, 303, 220, 293)
+                vertex(220, 293)
+                vertex(100, 250)
+                endShape();
+                fill(0,0,0)
+                rect(100,310,300,20)
+                rect(100,175,300,20)
+                # time to close = 5
+                # get to y = 250
+                if blink == 1:
+                    if lid1 <= 237:
+                        speed = speed+2
+                        lid1 = lid1 + (speed)
+                        lid2 = lid2 + (speed*1.2)
+                    elif (lid1 > 237) and (lid1 < 295):
+                        speed = speed-1
+                        lid1 = lid1 + (speed)
+                        lid2 = lid2 + (speed*1.2)
+                    elif lid1 >= 295:
+                        #delay(50)
+                        time=20
+                        r = random.randint(0, 255)
+                        #g = random.randint(0, 255) F
+                        #b = random.randint(0, 255)    rest in peace F
+                        eyestate= 2
+                        blink = 3
+                        speed = 1
+                        
+                if blink == 2:
+                    if lid1 >= 268:
+                        speed = speed+2
+                        lid1 = lid1 - (speed)
+                        lid2 = lid2 - (speed*1.2)
+                    elif (lid1 < 268) and (lid1 > 205):
+                        speed = speed-1
+                        lid1 = lid1 - (speed)
+                        lid2 = lid2 - (speed*1.2)
+                    elif lid1 >= 205:
+                    
+                        #delay(500)
+                        time=220-random.randint(0,200)
+                        eyestate=1
+                        blink = 3
+                        speed = 1
+                fill(0)
+                beginShape();
+                vertex(400, 250)     #upper start
+                vertex(400, 195)
+                vertex(100, 195)
+                vertex(100, 250)     #lower edge
+                vertex(220, tempLid1)
+                bezierVertex(220, tempLid1, 250, tempLid2, 280, tempLid1)
+                vertex(280, tempLid1)
+                vertex(400, 250)
+                endShape();
+                if tempLid1 >= 268:
+                        tempSpeed = tempSpeed+2
+                        tempLid1 = tempLid1 - (tempSpeed)
+                        tempLid2 = tempLid2 - (tempSpeed*1.2)
+                elif (tempLid1 < 268) and (tempLid1 > 205):
+                        tempSpeed = tempSpeed-0.5
+                        tempLid1 = tempLid1 - (tempSpeed)
+                        tempLid2 = tempLid2 - (tempSpeed*1.2)
+    #print(time)
